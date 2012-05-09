@@ -142,10 +142,6 @@ Then /^I should be signed out$/ do
   page.should_not have_content "Logout"
 end
 
-Then /^I see an unconfirmed account message$/ do
-  page.should have_content "Your account is not active."
-end
-
 Then /^I should see an invalid email message$/ do
   page.should have_content "Email is invalid"
 end
