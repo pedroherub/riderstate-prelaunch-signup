@@ -146,16 +146,16 @@ Then /^I see an unconfirmed account message$/ do
   page.should have_content "Your account is not active."
 end
 
+Then /^I should see an invalid email message$/ do
+  page.should have_content "Email is invalid"
+end
+
 Then /^I see a successful sign in message$/ do
   page.should have_content "Signed in successfully."
 end
 
 Then /^I should see a successful sign up message$/ do
   page.should have_content "Thank You"
-end
-
-Then /^I should see an invalid email message$/ do
-  page.should have_content "Email is invalid"
 end
 
 Then /^I should see a missing password message$/ do
