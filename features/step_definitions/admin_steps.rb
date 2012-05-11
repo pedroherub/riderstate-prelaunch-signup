@@ -15,3 +15,7 @@ end
 Then /^I should see an access denied message$/ do
   page.should have_content "Not authorized as an administrator"
 end
+
+When /^I click a link "([^"]*)"$/ do |arg1|
+  click_on (arg1)
+end
