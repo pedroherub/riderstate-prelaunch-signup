@@ -1,7 +1,7 @@
 .row
   .span3
     %img{:alt => "Riderstate", :src => "/images/LogoWEB.jpg"}/
-  .span3.offset6{:style => "text-align: center; margin-top: 24px"}
+  .span3.offset6{:style => "text-align: center; margin-top: 100px"}
     %a.btn{ :href => "" } Inicio
     %a.btn{ :href => "" } Nosotros
     %a.btn{ :href => "" } Contacto
