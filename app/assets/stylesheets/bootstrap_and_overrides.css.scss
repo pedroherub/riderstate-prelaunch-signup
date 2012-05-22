@@ -3,12 +3,47 @@ $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 @import "bootstrap";
 body { padding-top: 60px; }
-.row { padding-bottom: 60px; }
+.row { padding-bottom: 40px; }
+
+.thumbnail {
+	border: 1px dashed #DDDDDD;
+	height: 360px;
+}
+
 .thumbnail .caption { padding: 20px 50px;
 		      text-align: center;
 }
 .thumbnail .caption p{ 
 	font-size: 14px;
+}
+
+.btn {
+	background: none repeat scroll 0 0 #EEEEEE;
+	border-radius: 6px 6px 6px 6px;
+        margin-left: 15px;
+	font-size: 20px;
+        line-height: 30px;
+	color: #4C4C4C;
+	border-width: 0;
+}
+
+.btn:hover { color: #D56853; }
+
+.btn.active, input.active {
+	background: #D56843;
+	color: #FFFFFF;
+	border-radius: 6px 6px 6px 6px;
+	height: 40px;
+        width: 150px;
+	font-size: 15px;
+}
+
+input#user_email {
+    width: 300px;
+    height: 30px;
+    border-radius: 6px 6px 6px 6px;
+    font-size: 15px;
+    text-align: center;
 }
 
 /* =Header
@@ -36,18 +71,24 @@ body { padding-top: 60px; }
 .navbar .nav > li > a{
 	color: white;
 	padding: 10px;
+        display: block;
+        float: left;
 }
 
 .navbar .nav > li{
 	list-style: none;
-	margin-left: 20px;
+	margin-right: 20px;
 	margin-top: 0;
+	height: 40px;
 	display:-moz-inline-box;
 	display:inline-block;
 	zoom:1;
 	*display:inline;
 }
-.navbar .nav > li.rs{margin-left: 5px}
+.navbar .nav > li.rs{
+	margin-left: 5px;
+	margin-right: 0;
+}
 
 .navbar .nav > li .rs-ico{
 	display: block;

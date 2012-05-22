@@ -19,9 +19,6 @@
 
 // display validation errors for the "request invitation" form
 $('document').ready(function() {
-  if ($('#error_explanation').length > 0) {
-    $("#request-invite").modal('toggle');
-  }
 
   // use AJAX to submit the "request invitation" form
   $('#invitation_button').live('click', function() {

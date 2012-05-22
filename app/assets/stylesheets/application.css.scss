@@ -20,9 +20,6 @@
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 
 /*
@@ -38,8 +35,11 @@ Tags: custom-menu, sticky-post, microformats, rtl-language-support, translation-
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
-*/
+*/       
 
+div.caption {
+	width: 270px;
+}
 
 /* =Sprite botones
 -------------------------------------------------------------- */
