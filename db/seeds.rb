@@ -5,10 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'please', :password_confirmation => 'please', :confirmed_at => Time.now.utc
-puts 'New user created: ' << user.name
-user2 = User.create! :name => 'Second User', :email => 'user2@example.com', :password => 'please', :password_confirmation => 'please', :confirmed_at => Time.now.utc
-puts 'New user created: ' << user2.name
-user.add_role :admin
-100.times {|i| User.create! :name => "User #{i+3}", :email => "user#{i+3}@example.com", :password => 'please', :password_confirmation => 'please', :confirmed_at => (Time.now + i.day).utc, :created_at => (Time.now + i.day).utc  }
+#puts 'SETTING UP DEFAULT USER LOGIN'
+#user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'please', :password_confirmation => 'please', :confirmed_at => Time.now.utc
+#puts 'New user created: ' << user.name
+#user2 = User.create! :name => 'Second User', :email => 'user2@example.com', :password => 'please', :password_confirmation => 'please', :confirmed_at => Time.now.utc
+#puts 'New user created: ' << user2.name
+#user.add_role :admin
+#100.times {|i| User.create! :name => "User #{i+3}", :email => "user#{i+3}@example.com", :password => 'please', :password_confirmation => 'please', :confirmed_at => (Time.now + i.day).utc, :created_at => (Time.now + i.day).utc  }
+Role.create(name: 'betatester')

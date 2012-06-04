@@ -1,0 +1,29 @@
+// Place all the styles related to the contact controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+p {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 0 12px;
+}
+
+input, textarea {
+    width: 300px;
+}
+
+textarea {
+    height: 150px;
+}
+
+input.submit {
+    background: url("images/rider-sprite.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 25px;
+    padding: 0 0 0 40px;
+}

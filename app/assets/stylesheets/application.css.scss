@@ -22,6 +22,21 @@
   border-radius: 0 0 6px 6px;
 }
 
+a.logo > img {
+  width: 300px;
+  text-align: center;
+}
+
+.betatester-request {
+  text-align:center;
+  background-color: white;
+  font: #fff;
+  padding: 10px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  border-radius: 6px 6px 6px 6px;
+}
+
 /*
 Theme Name: RiderState
 Theme URI: 

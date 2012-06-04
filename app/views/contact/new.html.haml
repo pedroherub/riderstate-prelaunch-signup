@@ -1,0 +1,28 @@
+.row
+  .span6{ :style => "width: 480px; margin-left: 120px; text-align: center;" }
+    %p La cuenta atrás ha comenzado…
+    %p Si tienes cualquier tipo de duda o quieres hacernos alguna sugerencia, ponte en contacto con nosotros. Seguro que tus ideas van a mejorar RiderState ¡Te esperamos!
+    %p Mientras ponemos todo a punto para conquistar el mundo con nuestra bici…
+    %p  
+    %div{:style => "font-size: 30px; margin-bottom: 30px; line-height: 40px; margin-top: 30px;"}
+      No lo pienses. Es el momento.
+      %br/
+      ¡Apúntate!
+  .span6{ :style => "width: 480px; margin-left: 120px;" }
+    = form_for @message, :html => { :class => "active"}, :url => contact_path do |form|
+      %fieldset.fields
+        .field
+          = form.label :name
+          = form.text_field :name
+        .field
+          = form.label "Tu Email"
+          = form.text_field :email
+        .field
+          = form.label "Asunto"
+          = form.text_field :subject
+        .field
+          = form.label "Tu Mensaje"
+          = form.text_area :body
+      %fieldset.actions
+        = form.submit "Enviar", :class => "active"
+

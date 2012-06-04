@@ -1,10 +1,29 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:mark_as_betatester]
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    @users = User.all
+    @users = User.accessible_by(current_ability, :index)
     @chart = create_chart
+  end
+
+  def update
+    authorize! :update, @user, :message => 'Not authorized as an administrator.'
+    debugger
+    current_user.update_attribute :betatester, true
+    if current_user.save 
+      (render(:partial => 'thankyou2', :layout => false) && return)  if request.xhr?
+    end
+  end
+
+  def mark_as_betatester
+    #authorize! :mark_as_betatester, @user, :message => 'Not authorized as an administrator.'
+    #debugger
+    @user = User.find(params[:id])
+    @user.update_attribute :betatester, true
+    if @user.save
+      (render(:partial => 'thankyou2', :layout => false) && return) if request.xhr?
+    end
   end
   
   def show
@@ -28,6 +47,18 @@ class UsersController < ApplicationController
   end
   
   private
+
+  # Get roles accessible by the current user
+  #----------------------------------------------------
+  def accessible_roles
+    @accessible_roles = Role.accessible_by(current_ability,:read)
+  end
+ 
+  # Make the current user object available to views
+  #----------------------------------------
+  def get_user
+    @current_user = current_user
+  end
   
   def create_chart
     users_by_day = User.group("DATE(created_at)").count

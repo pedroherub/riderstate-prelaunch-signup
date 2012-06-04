@@ -13,8 +13,8 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
-  %body
-    %header.navbar.navbar-fixed-top
+  %body{:style => 'padding-top:0px;'}
+    %header.navbar.navbar-top
       %nav.navbar-inner
         .container
           = render 'layouts/navigation'
@@ -23,7 +23,14 @@
         .content
           .row
             .span12
+              .row
+                .span6
+                  = link_to image_tag("/images/LogoWEB.jpg", :border => 0), {:action => 'new', :controller => 'registrations'},{:class => 'logo'}
+                .span6{:style => "text-align: right; margin-top: 25px; height: 70px;"}
+                  %a.btn{ :href => "/contact" } Contacto
+                  %a.btn{ :href => "http://www.youtube.com/user/RiderStateVideo" } Youtube RS
+                  %a.btn{ :href => "http://www.riderstate.com/planetrs" } Planet RS
               = render 'layouts/messages'
               = yield
-          %footer
-            = render 'layouts/footer'
+    %footer
+      = render 'layouts/footer'

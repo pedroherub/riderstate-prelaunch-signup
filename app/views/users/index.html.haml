@@ -22,6 +22,9 @@
         %th Joined
         %th Visits
         %th Most Recent
+        %th Roles
+        %th Id
+        %th Betatester
     %tbody
       - @users.each do |user|
         %tr
@@ -31,3 +34,6 @@
           %td #{user.confirmed_at.to_date if user.confirmed_at}
           %td #{user.sign_in_count if user.sign_in_count}
           %td #{user.last_sign_in_at.to_date if user.last_sign_in_at}
+          %td #{user.roles.collect{|r| r.name}}
+          %td #{user.id}
+          %td #{user.betatester}
