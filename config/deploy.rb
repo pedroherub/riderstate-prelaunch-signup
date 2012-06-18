@@ -135,7 +135,7 @@ namespace :deploy do
 
   desc "Start unicorn"
   task :start, :except => { :no_release => true } do
-    run "cd #{current_path} ; #{try_sudo} #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
+    run "cd #{current_path} ; #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
   end
 
   desc "Stop unicorn"
