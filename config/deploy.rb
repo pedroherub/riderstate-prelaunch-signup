@@ -32,7 +32,7 @@ set :deploy_to,       "/usr/share/nginx/www/#{application}"
 set :normalize_asset_timestamps, false
 
 set :user,            "ubuntu"
-#set :group,           "staff"
+set :group,           ""
 set :use_sudo,         true
 
 set :location, "54.247.175.28"
@@ -42,7 +42,7 @@ role :app,    location
 role :db,     location, :primary => true
 
 # specify unicorn location, config and pid file
-set :unicorn_binary, "/home/ubuntu/.rvm/gems/ruby-1.9.2-p290/bin/unicorn_rails"
+set :unicorn_binary, "/home/ubuntu/.rvm/gems/ruby-1.9.3-p194/bin/unicorn_rails"
 set :unicorn_config, "#{current_path}/config/unicorn.rb"
 set :unicorn_pid, "/tmp/unicorn.riderstate.pid"
 
@@ -135,12 +135,12 @@ namespace :deploy do
 
   desc "Start unicorn"
   task :start, :except => { :no_release => true } do
-    run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
+    run "cd #{current_path} ; #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
   end
 
   desc "Stop unicorn"
   task :stop, :except => { :no_release => true } do
-    run "kill -s QUIT `cat /tmp/unicorn.my_site.pid`"
+    run "kill -s QUIT `cat /tmp/unicorn.riderstate.pid`"
   end  
 
   namespace :rollback do
