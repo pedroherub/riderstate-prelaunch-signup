@@ -69,6 +69,12 @@ module RiderstatePrelaunchSignup
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    # Prevent initializing the application before assets are precompiled (required for heroku)
+    config.assets.initialize_on_precompile = false
+
+    # Add Rails Admin assets (required)
+    config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 

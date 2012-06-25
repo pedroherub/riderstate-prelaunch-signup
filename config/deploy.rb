@@ -35,6 +35,8 @@ set :user,            "ubuntu"
 set :group,           ""
 set :use_sudo,         true
 
+#ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
+
 set :location, "54.247.175.28"
 
 role :web,    location
