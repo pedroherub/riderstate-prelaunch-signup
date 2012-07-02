@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @track.name
+%p
+  %b Type:
+  = @track.type
+%p
+  %b Departing:
+  = @track.departing
+%p
+  %b Duration:
+  = @track.duration
+%p
+  %b Distance:
+  = @track.distance
+%p
+  %b Heartbeats:
+  = @track.heartbeats
+%p
+  %b Burnedcalories:
+  = @track.burnedcalories
+%p
+  %b Feeling:
+  = @track.feeling
+%p
+  %b Weather:
+  = @track.weather
+%p
+  %b Notes:
+  = @track.notes
+
+= link_to 'Edit', edit_user_track_path(@user,@track)
+\|
+= link_to 'Back', user_tracks_path(@user)

@@ -25,11 +25,11 @@
             .span12
               .row
                 .span6
-                  = link_to image_tag("/images/LogoWEB.jpg", :border => 0), {:action => 'new', :controller => 'registrations'},{:class => 'logo'}
+                  = link_to image_tag("/images/Inicio.jpg", :border => 0, :title => "Inicio"), {:action => 'new', :controller => 'registrations'},{:class => 'logo'}
                 .span6{:style => "text-align: right; margin-top: 25px; height: 70px;"}
                   %a.btn{ :href => "/contact" } Contacto
-                  %a.btn{ :href => "http://www.youtube.com/user/RiderStateVideo" } Youtube RS
-                  %a.btn{ :href => "http://www.riderstate.com/planetrs" } Planet RS
+                  %a.btn{ :href => "http://www.riderstate.com/planetrs" } Blog PlanetRS
+                  %a.btn{ :href => "http://www.youtube.com/user/RiderStateVideo" } Canal RSVideo
               = render 'layouts/messages'
               = yield
     %footer

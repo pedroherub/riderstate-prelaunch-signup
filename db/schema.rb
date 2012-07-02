@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625083841) do
+ActiveRecord::Schema.define(:version => 20120702100734) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.datetime "departing"
+    t.time     "duration"
+    t.float    "distance"
+    t.integer  "heartbeats"
+    t.float    "burnedcalories"
+    t.string   "feeling"
+    t.string   "weather"
+    t.string   "notes"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "activities", ["user_id"], :name => "index_activities_on_user_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -36,6 +54,24 @@ ActiveRecord::Schema.define(:version => 20120625083841) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "tracks", :force => true do |t|
+    t.string   "name"
+    t.string   "activity"
+    t.datetime "departing"
+    t.time     "duration"
+    t.float    "distance"
+    t.integer  "heartbeats"
+    t.float    "burnedcalories"
+    t.string   "feeling"
+    t.string   "weather"
+    t.string   "notes"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "tracks", ["user_id"], :name => "index_tracks_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "",    :null => false
@@ -63,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20120625083841) do
     t.string   "invited_by_type"
     t.boolean  "admin",                                :default => false
     t.boolean  "betatester",                           :default => false
+    t.float    "distance",                             :default => 0.0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -76,5 +113,16 @@ ActiveRecord::Schema.define(:version => 20120625083841) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "versions", :force => true do |t|
+    t.string   "item_type",  :null => false
+    t.integer  "item_id",    :null => false
+    t.string   "event",      :null => false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
 end

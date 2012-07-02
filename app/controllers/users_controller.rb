@@ -1,19 +1,30 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:mark_as_betatester]
 
+  #def index
+  #  authorize! :index, @user, :message => 'Not authorized as an administrator.'
+  #  @users = User.accessible_by(current_ability, :index)
+  #  @chart = create_chart
+  #end
+
   def index
-    authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    @users = User.accessible_by(current_ability, :index)
-    @chart = create_chart
+    #debugger
+    #@users = User.accessible_by(current_ability, :index)
+    @users = User.find(:all, :limit => 5, :order => 'distance DESC')
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
   end
 
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
-    debugger
-    current_user.update_attribute :betatester, true
-    if current_user.save 
-      (render(:partial => 'thankyou2', :layout => false) && return)  if request.xhr?
-    end
+    #authorize! :update, @user, :message => 'Not authorized as an administrator.'
+    #debugger
+    #current_user.update_attribute :betatester, true
+    #if current_user.save 
+      #(render(:partial => 'thankyou2', :layout => false) && return)  if request.xhr?
+    #end
   end
 
   def mark_as_betatester
@@ -22,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update_attribute :betatester, true
     if @user.save
-      (render(:partial => 'thankyou2', :layout => false) && return) if request.xhr?
+      (render(:partial => 'newbetatester', :layout => false) && return) if request.xhr?
     end
   end
   

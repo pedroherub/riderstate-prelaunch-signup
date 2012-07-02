@@ -12,8 +12,10 @@ RailsAdmin.config do |config|
   # If you want to track changes on your models:
   # config.audit_with :history, User
 
+  config.authorize_with :cancan
+
   # Or with a PaperTrail: (you need to install it first)
-  # config.audit_with :paper_trail, User
+  config.audit_with :paper_trail, User
 
   # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
   config.main_app_name = ['Riderstate Prelaunch Signup', 'Admin']

@@ -1,0 +1,9 @@
+.betatester-request
+  %br  
+  %p Hemos recibido tu e-mail correctamente. Te mantendremos informado de nuestra salida. 
+  %p Por cierto, ¿quieres probar la aplicación y darnos tu opinión antes que el resto? Crea con nosotros RiderState y hazte Beta Tester. 
+  %br
+  = simple_form_for @user, :url => mark_as_betatester_user_path(@user), :method => :post, :html => { :id => "betatester_email", :class=>"form-inline" } do |f|
+    = f.submit "Quiero ser Beta Tester", :class => "active", :id => 'betatester_button'
+
+

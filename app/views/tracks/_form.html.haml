@@ -1,0 +1,66 @@
+= form_for @track, :html => { :class => "form-horizontal"}, :method => 'post', :url => user_tracks_path(@user) do |f|
+  -#= f.error_notification
+  %fieldset
+    %legend Legend text
+    .control-group
+      %label.control-label{:for => "track_name"} Text input
+      .controls
+        %input#track_name.input-xlarge{:type => "text", :name => "track[name]"}
+          %p.help-block Supporting help text
+    .control-group
+      %label.control-label{:for => "activity"} Select list
+      .controls
+        %select#activity
+          %option Bicicleta de carretera
+          %option Bicicleta de montaña
+          %option Bicicleta estática / Rodillo
+    = f.datetime_select("departing")
+    .control-group
+      %label.control-label{:for => "departing"} Text input
+      .controls
+        %input#departing.input-xlarge{:type => "text"}
+          %p.help-block Supporting help text
+    .control-group
+      %label.control-label{:for => "duration"} Text input
+      .controls
+        %input#duration.input-xlarge{:type => "text"}
+          %p.help-block Supporting help text
+    .control-group
+      %label.control-label{:for => "track_distance"} Text input
+      .controls
+        %input#track_distance.input-xlarge{:type => "text", :name => "track[distance]"}
+          %p.help-block Supporting help text
+    .control-group
+      %label.control-label{:for => "track_heartbeats"} Text input
+      .controls
+        %input#track_heartbeats.input-xlarge{:type => "text", :name => "track[heartbeats]"}
+          %p.help-block Supporting help text
+    .control-group
+      %label.control-label{:for => "track_burnedcalories"} Text input
+      .controls
+        %input#track_burnedcalories.input-xlarge{:type => "text", :name => "track[burnedcalories]"}
+          %p.help-block Supporting help text
+    .control-group
+      %label.control-label{:for => "feeling"} Text input
+      .controls
+        %select#feeling 
+          %option Increible
+          %option Bien               
+          %option Regular                      
+          %option Mal                     
+    .control-group
+      %label.control-label{:for => "weather"} Text input
+      .controls
+        %select#weather
+          %option Sol
+          %option Nubes
+          %option Lluvia
+          %option Nieve
+          %option Tormenta
+    .control-group
+      %label.control-label{:for => "notes"} Additional notes
+      .controls
+        %textarea#notes.input-xlarge{:type => "text"}
+    .form-actions
+      %button.btn.btn-primary{:type => "submit"} Save changes
+      %button.btn Cancel

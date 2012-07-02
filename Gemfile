@@ -24,12 +24,15 @@ gem "rails_admin", "0.0.4"
 gem "bootstrap-sass", ">= 2.0.3"
 gem "simple_form"
 #gem "will_paginate", ">= 3.0.3"
+gem "paper_trail"
 gem "google_visualr", ">= 2.1.2"
 gem "jquery-datatables-rails"
-#gem 'linecache19', '0.5.13'
-#gem 'ruby-debug-base19', '0.11.26'
-#gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'linecache19', '0.5.13'
+gem 'ruby-debug-base19', '0.11.26'
+gem 'ruby-debug19', :require => 'ruby-debug'
 gem "pg"
+gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-timepicker-rails'
 
 gem "unicorn"
 

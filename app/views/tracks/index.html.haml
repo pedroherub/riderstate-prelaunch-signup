@@ -1,0 +1,38 @@
+- content_for :head do
+  = javascript_include_tag 'http://www.google.com/jsapi'
+%h2 My tracks
+.span9
+  %table.datatable.table.table-bordered.table-condensed
+    %thead
+      %tr
+        %th Name
+        %th Type
+        %th Departing
+        %th Duration
+        %th Distance
+        %th Heartbeats
+        %th Burnedcalories
+        %th Feeling
+        %th Weather
+        %th Notes
+        %th
+        %th
+        %th
+        %tbody
+    - @tracks.each do |track|
+      %tr
+        %td= track.name
+        %td= track.activity
+        %td= track.departing
+        %td= track.duration
+        %td= track.distance
+        %td= track.heartbeats
+        %td= track.burnedcalories
+        %td= track.feeling
+        %td= track.weather
+        %td= track.notes
+        %td= link_to 'Show', user_track_path(@current_user,track.id)
+        %td= link_to 'Edit', edit_user_track_path(@current_user,track.id)
+        %td= link_to 'Destroy', user_track_path(@current_user,track.id), :confirm => 'Are you sure?', :method => :delete
+  %br
+    = link_to 'New Track', new_user_track_path(@current_user)

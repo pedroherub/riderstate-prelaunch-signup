@@ -1,12 +1,5 @@
 RiderstatePrelaunchSignup::Application.routes.draw do
   
-
-  
-
-  
-
-  
-
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   authenticated :user do
@@ -15,6 +8,7 @@ RiderstatePrelaunchSignup::Application.routes.draw do
   devise_scope :user do
     root :to => "devise/registrations#new"
     match '/user/confirmation' => 'confirmations#update', :via => :put, :as => :update_user_confirmation
+    match 'register' => 'registrations#register', :as => 'register', :via => :get
   end
   devise_for :users, :controllers => { :registrations => "registrations", :confirmations => "confirmations" }
   match 'users/bulk_invite/:quantity' => 'users#bulk_invite', :via => :get, :as => :bulk_invite
@@ -24,5 +18,6 @@ RiderstatePrelaunchSignup::Application.routes.draw do
   resources :users, :only => [:show, :index] do
     get 'invite', :on => :member
     post 'mark_as_betatester', :on => :member
+    resources :tracks
   end
 end

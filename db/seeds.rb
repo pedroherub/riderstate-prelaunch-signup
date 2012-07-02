@@ -12,4 +12,4 @@
 #puts 'New user created: ' << user2.name
 #user.add_role :admin
 #100.times {|i| User.create! :name => "User #{i+3}", :email => "user#{i+3}@example.com", :password => 'please', :password_confirmation => 'please', :confirmed_at => (Time.now + i.day).utc, :created_at => (Time.now + i.day).utc  }
-Role.create(name: 'betatester')
+#Role.create(name: 'betatester')

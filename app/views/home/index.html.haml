@@ -1,1 +1,8 @@
-%h3 Welcome
+-#%h3 Welcome
+%p
+  = link_to 'My tracks', user_tracks_path(@current_user), :method => :get, :class => 'btn btn-large'
+  = link_to 'New track', new_user_track_path(@current_user), :method => :get, :class => 'btn btn-large'
+  = link_to 'Ranking tracks', users_path, :method => :get, :class => 'btn btn-large'
+  = link_to 'My profile', edit_user_registration_path, :method => :get, :class => 'btn btn-large'
+
+  

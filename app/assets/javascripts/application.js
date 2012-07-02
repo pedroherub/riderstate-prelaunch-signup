@@ -15,13 +15,18 @@
 //= require bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
+//= require bootstrap-datepicker
+//= require bootstrap-timepicker
 //= require jquery.tabSlideOut.v1.3.js
 //= require_tree .
 
 // display validation errors for the "request invitation" form
 $('document').ready(function() {
 
-$('label.email').hide();
+$('#departing').datepicker({
+    dateFormat: "yy-mm-dd"
+  })
+$('#duration').timepicker()
 
 //  $('.slide-out-div').tabSlideOut({
 //    tabHandle: '.handle', //class of the element that will become your tab
@@ -60,7 +65,7 @@ $('label.email').hide();
   // use AJAX to update the user as a betatester 
   $('#betatester_button').live('click', function() {
     var action = $("#betatester_email").attr("action");
-    console.log(action);
+    //console.log(action);
     $.ajax({
       type: "POST",
       url: action,
