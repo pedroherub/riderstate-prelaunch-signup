@@ -33,6 +33,8 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 gem "pg"
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-timepicker-rails'
+gem 'client_side_validations'
+gem 'dynamic_form'
 
 gem "unicorn"
 

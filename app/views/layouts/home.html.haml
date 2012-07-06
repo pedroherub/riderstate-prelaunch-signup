@@ -23,12 +23,12 @@
         .content
           .row
             .span12
-              -#.row
-              -#  -#= link_to 'My tracks', user_tracks_path(@current_user), :method => :get, :class => 'btn btn-large'
-              -#  -#= link_to 'New track', new_user_track_path(@current_user), :method => :get, :class => 'btn btn-large'
-              -#  = link_to 'Ranking tracks', users_path, :method => :get, :class => 'btn btn-large'
-              -#  = link_to 'My profile', edit_user_registration_path, :method => :get, :class => 'btn btn-large'
-              -#  = render 'layouts/messages'
+              .row
+                = link_to 'My tracks', user_tracks_path(@current_user), :method => :get, :class => 'btn btn-large'
+                = link_to 'New track', new_user_track_path(@current_user), :method => :get, :class => 'btn btn-large'
+                = link_to 'Ranking tracks', users_path, :method => :get, :class => 'btn btn-large'
+                = link_to 'My profile', edit_user_registration_path, :method => :get, :class => 'btn btn-large'
+              -#= render 'layouts/messages'
               = yield
     %footer
       = render 'layouts/footer'

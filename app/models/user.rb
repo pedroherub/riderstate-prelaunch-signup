@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   
   # override Devise method
   def confirmation_required?
-    false
+    true
   end
   
   # override Devise method

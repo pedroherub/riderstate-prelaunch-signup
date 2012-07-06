@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120702100734) do
+ActiveRecord::Schema.define(:version => 20120704151609) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -59,16 +59,18 @@ ActiveRecord::Schema.define(:version => 20120702100734) do
     t.string   "name"
     t.string   "activity"
     t.datetime "departing"
-    t.time     "duration"
     t.float    "distance"
-    t.integer  "heartbeats"
     t.float    "burnedcalories"
     t.string   "feeling"
     t.string   "weather"
     t.string   "notes"
     t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.float    "heartbeats_average"
+    t.float    "heartbeats_max"
+    t.integer  "duration_hours",     :default => 0
+    t.integer  "duration_minutes",   :default => 0
   end
 
   add_index "tracks", ["user_id"], :name => "index_tracks_on_user_id"

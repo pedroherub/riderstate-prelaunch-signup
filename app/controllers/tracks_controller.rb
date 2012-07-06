@@ -1,9 +1,12 @@
 class TracksController < ApplicationController
 
+  layout "home", :only => [:index,:new]
+
   # GET /tracks
   # GET /tracks.json
   def index
     #@user = User.find(params[:user_id])
+    #debugger
     @tracks = @current_user.tracks.all
 
     respond_to do |format|
@@ -31,6 +34,11 @@ class TracksController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @track }
+    #  format.js do
+    #    render :new do |page|
+    #      page.replace_html "home-content", :partial => "form"
+    #    end
+    #  end
     end
   end
 
@@ -47,19 +55,23 @@ class TracksController < ApplicationController
     @track = @current_user.tracks.create(params[:track])
     if @track.save
       @current_user.distance += @track.distance
+      @current_user.save
     end
-    if @current_user.save
-      redirect_to user_tracks_path(@current_user)
-    end
-    #respond_to do |format|
-    #  if @track.save
-    #    format.html { redirect_to @track, notice: 'Track was successfully created.' }
-    #    format.json { render json: @track, status: :created, location: @track }
-    #  else
-    #    format.html { render action: "new" }
-    #    format.json { render json: @track.errors, status: :unprocessable_entity }
-    #  end
+    #if @current_user.save
+    #  redirect_to user_tracks_path(@current_user)
+    #else
+    #  render :action => "new"
     #end
+    respond_to do |format|
+      if @track.save
+        format.html { redirect_to @track, notice: 'Track was successfully created.' }
+        format.json { render json: @track, status: :created, location: @track }
+      else
+        #redirect_to new_user_track_path(:current_user)
+        format.html { render action: "new" }
+        format.json { render json: @track.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PUT /tracks/1

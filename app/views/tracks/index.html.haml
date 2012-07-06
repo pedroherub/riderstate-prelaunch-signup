@@ -10,7 +10,8 @@
         %th Departing
         %th Duration
         %th Distance
-        %th Heartbeats
+        %th Heartbeats average
+        %th Heartbeats max
         %th Burnedcalories
         %th Feeling
         %th Weather
@@ -24,9 +25,10 @@
         %td= track.name
         %td= track.activity
         %td= track.departing
-        %td= track.duration
+        %td= sprintf('%02d',track.duration_hours) + ":" + sprintf('%02d',track.duration_minutes)
         %td= track.distance
-        %td= track.heartbeats
+        %td= track.heartbeats_average
+        %td= track.heartbeats_max
         %td= track.burnedcalories
         %td= track.feeling
         %td= track.weather

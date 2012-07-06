@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:mark_as_betatester]
 
+  layout "home", :only => :index
+
   #def index
   #  authorize! :index, @user, :message => 'Not authorized as an administrator.'
   #  @users = User.accessible_by(current_ability, :index)

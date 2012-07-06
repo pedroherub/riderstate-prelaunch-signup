@@ -17,11 +17,19 @@
 //= require dataTables/jquery.dataTables.bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
+//= require rails.validations
 //= require jquery.tabSlideOut.v1.3.js
 //= require_tree .
 
 // display validation errors for the "request invitation" form
 $('document').ready(function() {
+
+  $i = 24;
+  while($i < 100){
+     $('#track_duration_4i').append('<option value="' + $i + '">' + $i + '</option>');
+     $i++;
+   }
+
 
 $('#departing').datepicker({
     dateFormat: "yy-mm-dd"
