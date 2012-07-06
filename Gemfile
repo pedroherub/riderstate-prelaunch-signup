@@ -27,9 +27,11 @@ gem "simple_form"
 gem "paper_trail"
 gem "google_visualr", ">= 2.1.2"
 gem "jquery-datatables-rails"
-#gem 'linecache19', '0.5.13'
-#gem 'ruby-debug-base19', '0.11.26'
-#gem 'ruby-debug19', :require => 'ruby-debug'
+group :development, :test do
+  #gem 'linecache19', '0.5.13'
+  #gem 'ruby-debug-base19', '0.11.26'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
+end
 gem "pg"
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-timepicker-rails'
