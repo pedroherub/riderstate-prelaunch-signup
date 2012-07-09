@@ -15,8 +15,6 @@
 //= require bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
-//= require bootstrap-datepicker
-//= require bootstrap-timepicker
 //= require rails.validations
 //= require jquery.tabSlideOut.v1.3.js
 //= require_tree .
