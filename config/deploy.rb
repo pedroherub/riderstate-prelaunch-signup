@@ -19,6 +19,7 @@
 # end
 
 require "bundler/capistrano"
+load "deploy/assets"
 
 set :application,     "riderstate.es"
 set :scm,             :git
