@@ -29,10 +29,10 @@ $('document').ready(function() {
    }
 
 
-$('#departing').datepicker({
-    dateFormat: "yy-mm-dd"
-  })
-$('#duration').timepicker()
+//$('#departing').datepicker({
+//    dateFormat: "yy-mm-dd"
+//  })
+//$('#duration').timepicker()
 
 //  $('.slide-out-div').tabSlideOut({
 //    tabHandle: '.handle', //class of the element that will become your tab

@@ -81,7 +81,7 @@ module RiderstatePrelaunchSignup
     config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => "riderstate.com",
+      :domain               => "gmail.com",
       :user_name            => ENV["RS_GMAIL_USERNAME"],
       :password             => ENV["RS_GMAIL_PASSWORD"],
       :authentication       => :plain,
@@ -89,7 +89,7 @@ module RiderstatePrelaunchSignup
     }
 
     config.action_mailer.default_url_options = {
-      :host => "riderstate.com"
+      :host => "dev.riderstate.es"
     }
 
   end
