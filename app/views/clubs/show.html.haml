@@ -1,0 +1,19 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @club.name
+%p
+  %b Foundation:
+  = @club.foundation
+%p
+  %b District:
+  = @club.district.name
+%p
+  %b Logo:
+  = image_tag @club.logo.url
+
+= link_to 'Back', clubs_path
+
+- if @current_user.has_role? :admin_group
+  = link_to 'Edit club info', edit_club_path(@club), :method => :get, :class => 'btn btn-large'

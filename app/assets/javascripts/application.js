@@ -11,12 +11,15 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui-1.8.21.custom.min
 //= require jquery_ujs
-//= require bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
 //= require rails.validations
+//= require rails.validations.simple_form
+//= require autocomplete-rails
 //= require jquery.tabSlideOut.v1.3.js
+//= require jquery.multiFieldExtender-2.0.min.js
 //= require_tree .
 
 // display validation errors for the "request invitation" form
@@ -28,6 +31,7 @@ $('document').ready(function() {
      $i++;
    }
 
+  $("#itemUsersForClub").EnableMultiField();
 
 //$('#departing').datepicker({
 //    dateFormat: "yy-mm-dd"
@@ -81,6 +85,5 @@ $('document').ready(function() {
     });
     return false;
   });
-
 
 })

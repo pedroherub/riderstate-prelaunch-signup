@@ -28,14 +28,15 @@ gem "paper_trail"
 gem "google_visualr", ">= 2.1.2"
 gem "jquery-datatables-rails"
 group :development, :test do
-  #gem 'linecache19', '0.5.13'
-  #gem 'ruby-debug-base19', '0.11.26'
-  #gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'linecache19', '0.5.13'
+  gem 'ruby-debug-base19', '0.11.26'
+  gem 'ruby-debug19', :require => 'ruby-debug'
   #gem 'bootstrap-datepicker-rails'
   #gem 'bootstrap-timepicker-rails'
 end
 gem "pg"
-gem 'client_side_validations'
+gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
+gem 'client_side_validations-simple_form'
 gem 'dynamic_form'
 
 gem "unicorn"
@@ -43,3 +44,6 @@ gem "unicorn"
 group :development do
   gem "capistrano"
 end
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk', '~> 1.3.4'
+gem 'rails3-jquery-autocomplete'

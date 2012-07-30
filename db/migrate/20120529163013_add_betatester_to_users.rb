@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddBetatesterToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :betatester, :boolean, :default => false

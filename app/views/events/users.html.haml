@@ -1,0 +1,7 @@
+%h1 Listing event's user
+%table
+  %tr
+    %th Event user name
+  - @users.each do |user|
+    %tr
+      %td= user.email

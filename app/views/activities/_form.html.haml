@@ -1,0 +1,45 @@
+= simple_form_for @activity, :validate => true, :html => { :id => 'activity-form', :class => 'form-horizontal' }, :method => 'post', :url => user_activities_path(@user) do |f|
+  -#= f.error_messages
+  %fieldset
+    .control-group
+      .controls
+        = f.input :name 
+    .control-group
+      .controls
+        = f.input :riding_type, :collection => ['Bicicleta de carretera','Bicicleta de montaña','Bicicleta estática / Rodillo'], :selected => @activity.riding_type 
+    .control-group
+      %label.control-label{:for => "departing"} Departing
+      .controls
+        = f.datetime_select("departing",{:order => [:day, :month, :year, :hour, :minute]}, {:class => "datetime"})
+    .control-group
+      .controls
+        .control-group
+          %label.control-label{:for => "duration"} Duration
+          .controls.inline
+            -#= f.input :duration_hours, :input_html => { :class => 'input-mini inline',:placeholder => '00',:value => 0, :maxlength => 2 }
+            %input#activity_duration_hours.input-mini{:type => "text", :name => "activity[duration_hours]", :placeholder => '00', :value => 0, :maxlength => 2}
+            \:
+            -#= f.input :duration_minutes, :input_html => { :class => 'input-mini inline',:placeholder => '00',:value => 0, :maxlength => 2 }
+            %input#activity_duration_minutes.input-mini{:type => "text", :name => "activity[duration_minutes]", :placeholder => '00', :value => 0, :maxlength => 2}
+    .control-group
+      .controls
+        = f.input :distance 
+    .control-group
+      .controls
+        = f.input :heartbeats_average 
+    .control-group
+      .controls
+        = f.input :heartbeats_max 
+    .control-group
+      .controls
+        = f.input :burnedcalories 
+    .control-group
+      .controls
+        = f.input :feeling, :collection => ['Increible','Bien','Regular','Mal'], :selected => @activity.feeling 
+    .control-group
+      .controls
+        = f.input :weather, :collection => ['Sol','Nubes','Lluvia','Nieve','Tormenta'], :selected => @activity.weather 
+    .control-group
+      .controls
+        = f.input :notes, :as => :text, :input_html => { :cols => 50, :rows => 5 }
+    %button.btn.btn-primary{:type => "submit"} Update activity

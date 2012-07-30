@@ -1,0 +1,41 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @activity.name
+%p
+  %b Type:
+  = @activity.riding_type
+%p
+  %b Departing:
+  = @activity.departing
+%p
+  %b Duration:
+  = @activity.duration_hours.to_s + ':' + @activity.duration_minutes.to_s
+%p
+  %b Distance:
+  = @activity.distance
+%p
+  %b Heartbeats average:
+  = @activity.heartbeats_average
+%p
+  %b Heartbeats max:
+  = @activity.heartbeats_max
+%p
+  %b Burnedcalories:
+  = @activity.burnedcalories
+%p
+  %b Feeling:
+  = @activity.feeling
+%p
+  %b Weather:
+  = @activity.weather
+%p
+  %b Notes:
+  = @activity.notes
+-#%p
+-#  %b Track:
+-#  = image_tag @track.geolocation.url
+= link_to 'Edit', edit_user_activity_path(@current_user,@activity), :method => :get, :class => 'btn btn-large' 
+-#\|
+-#= link_to 'Back', user_activities_path(@user)

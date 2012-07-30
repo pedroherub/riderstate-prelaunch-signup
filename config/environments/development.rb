@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 RiderstatePrelaunchSignup::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -53,4 +54,7 @@ RiderstatePrelaunchSignup::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  Paperclip.options[:command_path] = "/usr/bin/"
+  #config.paperclip_defaults = {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
 end

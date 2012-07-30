@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 # Set environment to development unless something else is specified
 env = ENV["RAILS_ENV"] || "development"

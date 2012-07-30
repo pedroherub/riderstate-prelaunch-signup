@@ -11,6 +11,7 @@
  *= require_self
  *= require dataTables/jquery.dataTables.bootstrap
  *= require_tree .
+ *= require vendor
 */
 
 div#main {
@@ -39,6 +40,18 @@ a.logo > img {
   -webkit-border-radius: 6px 6px 6px 6px;
   -moz-border-radius: 6px 6px 6px 6px;
   border-radius: 6px 6px 6px 6px;
+}
+
+.addMoreFields {
+  color: green;
+}
+
+.error > input {
+  border-color: red;
+}
+
+.error > span {
+  color: red;
 }
 
 /*

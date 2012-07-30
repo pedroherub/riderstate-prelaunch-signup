@@ -1,5 +1,19 @@
+# -*- encoding : utf-8 -*-
 RiderstatePrelaunchSignup::Application.routes.draw do
-  
+
+  resources :tracks
+
+  resources :events do
+    post 'register', :on => :member
+    post 'unregister', :on => :member
+    get 'users', :on => :member
+  end
+
+  resources :clubs do
+    get :autocomplete_district_name, :on => :collection
+  end
+  match 'viewclub' => 'clubs#view', :as => 'viewclub', :via => :get
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   authenticated :user do
@@ -14,10 +28,13 @@ RiderstatePrelaunchSignup::Application.routes.draw do
   match 'users/bulk_invite/:quantity' => 'users#bulk_invite', :via => :get, :as => :bulk_invite
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
-  
+
   resources :users, :only => [:show, :index] do
     get 'invite', :on => :member
     post 'mark_as_betatester', :on => :member
-    resources :tracks
+    get 'info_club', :on => :member
+    match 'myevents' => 'events#joined_events', :via => :get, :as => 'myevents'
+    resources :activities
   end
+
 end

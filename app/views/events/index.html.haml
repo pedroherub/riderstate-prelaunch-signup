@@ -1,0 +1,27 @@
+- content_for :head do
+  = javascript_include_tag 'http://www.google.com/jsapi'
+= link_to 'Create event', new_event_path({:from => 'user'}), :method => :get, :class => 'btn btn-large' 
+= link_to 'My events', user_myevents_path(@current_user), :method => :get, :class => 'btn btn-large' 
+%h2 Listing events
+.span9
+  %table.datatable.table.table-bordered.table-condensed
+    %thead
+      %tr
+        %th Name
+        %th Starting
+        %th Type
+        %th Publish
+        %th
+        %th
+        %th
+    - @events.each do |event|
+      %tr
+        %td= event.name
+        %td= event.starting
+        %td= event.riding_type
+        %td= event.publish
+        %td= link_to 'Show', event
+        %td= link_to 'Edit', edit_event_path(event)
+        %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
+%br
+

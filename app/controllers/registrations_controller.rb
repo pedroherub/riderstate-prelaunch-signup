@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RegistrationsController < Devise::RegistrationsController
 
   layout "home", :only => :edit 
@@ -6,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource
     @users = User.find(:all, :include => :roles)  
-    #debugger
+    debugger
     if resource.save
       if resource.active_for_authentication?
         sign_in(resource_name, resource)
@@ -23,9 +24,9 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def update
-    @users = User.find
-  end
+  #def update
+  #  @users = User.find
+  #end
 
   def register
     #debugger

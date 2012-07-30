@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
   rolify
   # Include default devise modules. Others available are:
@@ -5,9 +6,10 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, :created_at, :betatester, :distance
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, :created_at, :betatester, :distance, :club_id
 
-  has_many :tracks
+  has_many :activities
+  has_and_belongs_to_many :events
 
   # override Devise method
   # no password is required when the account is created; validate password when the user sets one
@@ -51,4 +53,9 @@ class User < ActiveRecord::Base
     pending_any_confirmation {yield}
   end
 
+  # send confirmation to a group's new users (added by the admin group)
+  def send_confirmation_instructions
+    generate_confirmation_token! if self.confirmation_token.nil?
+    ::Devise.mailer.confirmation_instructions(self).deliver
+  end
 end

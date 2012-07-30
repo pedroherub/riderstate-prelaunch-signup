@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDurationToTrack < ActiveRecord::Migration
   def change
     add_column :tracks, :duration_hours, :integer, :default => 0

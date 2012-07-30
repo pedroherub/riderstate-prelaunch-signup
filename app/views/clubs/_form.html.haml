@@ -1,0 +1,21 @@
+= simple_form_for(@club, :html => { :multipart => true }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name, :required => true
+    = f.input :foundation
+    -#= f.association :district
+    %label.integer.optional.control-label{:for => "autocomplete_district_id"} District
+    = autocomplete_field_tag 'autocomplete_district_id', '', autocomplete_district_name_clubs_path, :placeholder => "Set up a location...", :id => 'autocomplete_district_id', :id_element => '#club_district_id'
+    -#= f.input :district, :url => autocomplete_district_name_clubs_path, :as => :autocomplete, :id_element => '#district_id'
+    = f.input :district_id, :as => :hidden
+    .control-group.string.optional
+      %label.string.optional.control-label{:for => "club_logo"} Logo
+      .controls
+        = f.file_field :logo, :class => 'string optional'
+    %label.string.optional.control-label{:for => "adduser"} New members
+    #itemUsersForClub
+      = text_field_tag :adduser
+
+  .form-actions
+    = f.button :submit

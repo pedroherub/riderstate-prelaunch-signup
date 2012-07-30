@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #role :web, "your web-server here"                          # Your HTTP server, Apache/etc
 #role :app, "your app-server here"                          # This may be the same as your `Web` server
 #role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
@@ -114,6 +115,11 @@ namespace :deploy do
     end
     migrate
     restart
+  end
+
+  desc "build missing paperclip styles"
+  task :build_missing_paperclip_styles, :roles => :app do
+    run "cd #{release_path}; RAILS_ENV=production bundle exec rake paperclip:refresh:missing_styles"
   end
 
   task :finalize_update, :except => { :no_release => true } do

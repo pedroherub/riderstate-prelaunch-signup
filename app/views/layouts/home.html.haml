@@ -24,11 +24,19 @@
           .row
             .span12
               .row
-                = link_to 'My tracks', user_tracks_path(@current_user), :method => :get, :class => 'btn btn-large'
-                = link_to 'New track', new_user_track_path(@current_user), :method => :get, :class => 'btn btn-large'
-                = link_to 'Ranking tracks', users_path, :method => :get, :class => 'btn btn-large'
-                = link_to 'My profile', edit_user_registration_path, :method => :get, :class => 'btn btn-large'
-              -#= render 'layouts/messages'
-              = yield
+                -#= debugger
+                - if (@current_user.has_role? :admin_group and @current_user.club_id.nil?)
+                  = link_to 'Create club', new_club_path, :method => :get, :class => 'btn btn-large' 
+                - else
+                  = link_to 'My home',root_path, :method => :get, :class => 'btn btn-large'
+                  = link_to 'My activities', user_activities_path(@current_user), :method => :get, :class => 'btn btn-large'
+                  = link_to 'New activity', new_user_activity_path(@current_user), :method => :get, :class => 'btn btn-large' 
+                  = link_to 'Ranking activities', users_path, :method => :get, :class => 'btn btn-large' 
+                  = link_to 'My profile', edit_user_registration_path, :method => :get, :class => 'btn btn-large' 
+                  = link_to 'Events', events_path, :method => :get, :class => 'btn btn-large' 
+                  - if @current_user.club_id
+                    = link_to 'Club info', viewclub_path, :method => :get, :class => 'btn btn-large'
+                -#= render 'layouts/messages'
+                = yield
     %footer
       = render 'layouts/footer'

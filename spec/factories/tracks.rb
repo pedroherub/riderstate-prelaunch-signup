@@ -2,15 +2,6 @@
 
 FactoryGirl.define do
   factory :track do
-    name "MyString"
-    type ""
-    departing "2012-06-28 13:45:27"
-    duration "2012-06-28 13:45:27"
-    distance 1.5
-    heartbeats 1
-    burnedcalories 1.5
-    feeling ""
-    weather "MyString"
-    notes "MyString"
+    activity nil
   end
 end

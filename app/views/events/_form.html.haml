@@ -1,0 +1,26 @@
+= simple_form_for(@event, :validate => true, :html => { :multipart => true, :class => 'form-horizontal' }) do |f|
+  -#= f.error_notification
+
+  .form-inputs
+    .control-group
+      .controls
+        = f.input :name
+    .control-group
+      %label.control-label{:for => "event_photo"} Photo
+      .controls
+        = f.file_field :photo
+    .control-group
+      %label.control-label{:for => "starting"} Departing
+      .controls
+        = f.datetime_select("starting",{:order => [:day, :month, :year, :hour, :minute]}, {:class => "datetime"})
+    .control-group
+      -#%label.control-label{:for => "riding_type"} Type
+      .controls
+        = f.input :riding_type, :collection => [['MTB', 'MTB'] ,['Ruta', 'Ruta'],['Descenso', 'Descenso'],['BMX', 'BMX']], :label_method => :last, :value_method => :first,:as => :radio_buttons, :item_wrapper_class => 'inline',:checked => @event.riding_type || 'MTB'
+    .control-group
+      %label.control-label{:for => "publish"} Publish
+      .controls
+        = f.collection_radio_buttons :publish, @options, :first, :last, :checked => true, :item_wrapper_class => 'horizontal', :checked => @event.publish || 'Toda la web'
+    = f.hidden_field :group, :value => @group
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,35 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @event.name
+%p
+  %b Photo:
+  = image_tag @event.photo.url(:medium)
+%p
+  %b Starting:
+  = @event.starting
+%p
+  %b Type:
+  = @event.riding_type
+%p
+  %b Publish:
+  = @event.publish
+%p
+  - if @event.owner?(@current_user)
+    = link_to 'Edit', edit_event_path(@event), :method => :get, :class => 'btn btn-large'
+    = link_to 'Delete', event_path(@event), :method => :delete, :class => 'btn btn-large'
+  - else
+    - if @event.registered?(@current_user)
+      = link_to 'Unregister me!', unregister_event_path(@event), :method => :post, :class => 'btn btn-large'
+    - else
+      = link_to 'Register me!', register_event_path(@event), :method => :post, :class => 'btn btn-large'
+
+%h1 Listing event's user
+%table
+  %tr
+    %th Event user name
+  - @users.each do |user|
+    %tr
+      %td= user.email
+%br/

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Given /^I am logged in as an administrator$/ do
   create_user
   @user.add_role :admin

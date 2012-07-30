@@ -1,5 +1,6 @@
+# -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :except => [:mark_as_betatester]
+  before_filter :authenticate_user!, :except => [:mark_as_betatester,:info_club]
 
   layout "home", :only => :index
 
@@ -30,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   def mark_as_betatester
-    #authorize! :mark_as_betatester, @user, :message => 'Not authorized as an administrator.'
     #debugger
     @user = User.find(params[:id])
     @user.update_attribute :betatester, true
@@ -38,6 +38,14 @@ class UsersController < ApplicationController
       (render(:partial => 'newbetatester', :layout => false) && return) if request.xhr?
     end
   end
+  
+  def info_club
+    #debugger
+    @user = User.find(params[:id])
+    @user.update_attribute :betatester, true
+    render(:partial => 'newbetatester', :layout => false) && return
+  end
+  
   
   def show
     @user = User.find(params[:id])

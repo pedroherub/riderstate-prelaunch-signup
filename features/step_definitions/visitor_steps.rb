@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 def new_user
   @user ||= { :email => "example@example.com",
     :password => "please", :password_confirmation => "please" }
