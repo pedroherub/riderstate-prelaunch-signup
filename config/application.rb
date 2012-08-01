@@ -86,7 +86,8 @@ module RiderstatePrelaunchSignup
       :user_name            => ENV["RS_GMAIL_USERNAME"],
       :password             => ENV["RS_GMAIL_PASSWORD"],
       :authentication       => :plain,
-      :enable_starttls_auto => true
+      :enable_starttls_auto => true,
+      :openssl_verify_mode  => 'none'
     }
 
     config.action_mailer.default_url_options = {
