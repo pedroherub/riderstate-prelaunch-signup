@@ -20,7 +20,7 @@
 # end
 
 require "bundler/capistrano"
-load "deploy/assets"
+#load "deploy/assets"
 
 set :application,     "riderstate.es"
 set :scm,             :git
@@ -71,11 +71,11 @@ default_run_options[:shell] = 'bash'
 
 namespace :deploy do
 
-  #desc "Deploy the precompiled assets"
-  #task :deploy_assets, :except => { :no_release => true } do
-  #     run_locally("rake assets:clean && rake precompile")
-  #     upload("public/assets", "#{release_path}/public/assets", :via => :scp, :recursive => true)
-  #end
+  desc "Deploy the precompiled assets"
+  task :deploy_assets, :except => { :no_release => true } do
+       run_locally("rake assets:clean && rake assets:precompile")
+       upload("public/assets", "#{release_path}/public/assets", :via => :scp, :recursive => true)
+  end
 
   desc "Deploy your application"
   task :default do
