@@ -11,8 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui-1.8.21.custom.min
-//= require jquery_ujs
+//= require jquery.ui.all
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
 //= require rails.validations
