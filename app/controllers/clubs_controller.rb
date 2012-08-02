@@ -1,7 +1,7 @@
 class ClubsController < ApplicationController
   autocomplete :district, :name
 
-  #layout 'club'
+  layout 'club', :except => [:new]
 
   # GET /clubs
   # GET /clubs.json

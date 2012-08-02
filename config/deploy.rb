@@ -80,6 +80,7 @@ namespace :deploy do
   desc "Deploy your application"
   task :default do
     update
+    deploy_assets
     restart
   end
 
