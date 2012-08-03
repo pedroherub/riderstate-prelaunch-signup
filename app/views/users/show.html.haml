@@ -1,4 +1,32 @@
+- content_for :head do
+  = javascript_include_tag 'http://www.google.com/jsapi'
 %p
   User: #{@user.name}
 %p
   Email: #{@user.email if @user.email}
+%br
+%h2 My friends
+.span9
+  %table.datatable.table.table-bordered.table-condensed
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Status
+        %th
+    %tbody
+    - @user.friendship.each do |friendship|
+      %tr
+        %td 
+          = link_to friendship.friend.name, :action => :show, :id => friendship.friend.id
+        %td 
+          = friendship.friend.email
+        %td
+          = friendship.status
+        - if friendship.status == "requested"
+          %td 
+            = link_to "accept", :controller => :friendship, :action => :accept, :id => friendship.friend.id
+            |
+            = link_to "reject", :controller => :friendship, :action => :reject, :id => friendship.friend.id
+        -else
+          %td ------

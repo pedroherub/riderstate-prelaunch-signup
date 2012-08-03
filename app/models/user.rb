@@ -10,6 +10,24 @@ class User < ActiveRecord::Base
 
   has_many :activities
   has_and_belongs_to_many :events
+  has_many :friendship
+
+  #has_many :friends, 
+  #         :through => :friendships,
+  #         :conditions => "status = 'accepted'", 
+  #         :order => :id
+
+  #has_many :requested_friends, 
+  #         :through => :friendships, 
+  #         :source => :friend,
+  #         :conditions => "status = 'requested'", 
+  #         :order => :created_at
+
+  #has_many :pending_friends, 
+  #         :through => :friendships, 
+  #         :source => :friend,
+  #         :conditions => "status = 'pending'", 
+  #         :order => :created_at
 
   # override Devise method
   # no password is required when the account is created; validate password when the user sets one

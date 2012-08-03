@@ -1,6 +1,6 @@
 - content_for :head do
   = javascript_include_tag 'http://www.google.com/jsapi'
-%h2 Users
+%h2 Users ranking
 -#.span9
 -#  #chart{:style => "width: 700px; height: 240px"}
 -#  = render_chart @chart, 'chart'
@@ -19,20 +19,9 @@
         %th Email
         %th Id
         %th Distance
-        %th Status 
     %tbody
       - @users.each do |user|
         %tr
           %td #{link_to user.email, user}
           %td #{user.id}
           %td #{user.distance}
-          - if Friendship.are_friends(@current_user, user)
-            %td (you are friends)
-          - elsif Friendship.are_friends_pending(@current_user, user)
-            %td Pending
-          - elsif Friendship.are_friends_requested(@current_user, user)
-            %td Requested
-          - elsif @current_user == user
-            %td Its me!
-          - else
-            %td #{link_to "request friendship",:controller => :friendship,:action => :req,:id => user.id}

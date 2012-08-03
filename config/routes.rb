@@ -35,6 +35,13 @@ RiderstatePrelaunchSignup::Application.routes.draw do
     get 'info_club', :on => :member
     match 'myevents' => 'events#joined_events', :via => :get, :as => 'myevents'
     resources :activities
+    get 'friends', :on => :member
   end
+ 
+  match 'ranking' => 'users#ranking', :as => 'ranking', :via => :get
+
+  match 'request_invitation' => 'friendship#req', :via => :get
+  match 'accept_invitation' => 'friendship#accept', :via => :get
+  match 'reject_invitation' => 'friendship#reject', :via => :get
 
 end

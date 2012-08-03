@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:mark_as_betatester,:info_club]
 
-  layout "home", :only => :index
+  layout "home"
 
   #def index
   #  authorize! :index, @user, :message => 'Not authorized as an administrator.'
@@ -10,10 +10,21 @@ class UsersController < ApplicationController
   #  @chart = create_chart
   #end
 
-  def index
+  def ranking
     #debugger
     #@users = User.accessible_by(current_ability, :index)
     @users = User.find(:all, :limit => 5, :order => 'distance DESC')
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
+  end
+
+  def index
+    #debugger
+    #@users = User.accessible_by(current_ability, :index)
+    @users = User.find(:all)
     
     respond_to do |format|
       format.html # index.html.erb
@@ -49,6 +60,11 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+  end
+
+  def friends
+    @user = User.find(params[:id])
+    #@users = @current_user.friendship
   end
 
   def invite

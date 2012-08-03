@@ -1,0 +1,41 @@
+- content_for :head do
+  = javascript_include_tag 'http://www.google.com/jsapi'
+%h2 My friends
+-#.span9
+-#  #chart{:style => "width: 700px; height: 240px"}
+-#  = render_chart @chart, 'chart'
+-#  %br
+.span9
+  -#%p 
+  -#  Send Bulk Invitations: 
+  -#  = link_to "10 &#183;".html_safe, bulk_invite_path(:quantity => '10')
+  -#  = link_to "50 &#183;".html_safe, bulk_invite_path(:quantity => '50')
+  -#  = link_to "100 &#183;".html_safe, bulk_invite_path(:quantity => '100')
+  -#  = link_to "500 &#183;".html_safe, bulk_invite_path(:quantity => '500')
+  -#  = link_to "1000", bulk_invite_path(:quantity => '1000')
+  %table.datatable.table.table-bordered.table-condensed
+    %thead
+      %tr
+        %th Email
+        %th Id
+        %th Distance
+        %th Status
+        %th 
+    %tbody
+      - @user.friendship.each do |friendship|
+        %tr
+          %td #{link_to friendship.friend.email, friendship.friend}
+          %td #{friendship.friend.id}
+          %td #{friendship.friend.distance}
+          %td #{friendship.status} 
+          - if friendship.status == "requested"
+            %td 
+              = link_to "accept", :controller => :friendship, :action => :accept, :id => friendship.friend.id
+              |
+              = link_to "reject", :controller => :friendship, :action => :reject, :id => friendship.friend.id
+          -else
+            %td ------
+          -#- if Friendship.are_friends(@user, friendship.friend)
+            -#%td (you are friends)
+          -#- else
+            -#%td #{link_to "request friendship",:controller => :friendship,:action => :req,:id => user.id}
