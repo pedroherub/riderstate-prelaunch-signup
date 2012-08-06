@@ -7,7 +7,7 @@ class FriendshipController < ApplicationController
       if Friendship.request(@current_user, @friend)
         flash[:notice] = "Friendship with #{@friend.name} requested"
       else
-       flash[:notice] = "Friendship with #{@friend.name} cannot be requested"
+        flash[:notice] = "Friendship with #{@friend.name} cannot be requested"
       end
     end
     redirect_to user_path(@current_user)

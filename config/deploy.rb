@@ -82,6 +82,7 @@ namespace :deploy do
     update
     deploy_assets
     restart
+    #seed
   end
 
   desc "Setup your git-based deployment app"
@@ -121,6 +122,11 @@ namespace :deploy do
   desc "build missing paperclip styles"
   task :build_missing_paperclip_styles, :roles => :app do
     run "cd #{release_path}; RAILS_ENV=production bundle exec rake paperclip:refresh:missing_styles"
+  end
+
+  desc "reload the database with seed data"
+  task :seed do
+    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
   end
 
   task :finalize_update, :except => { :no_release => true } do

@@ -18,7 +18,6 @@
       %tr
         %th Email
         %th Id
-        %th Distance
         %th Status
         %th 
     %tbody
@@ -26,7 +25,6 @@
         %tr
           %td #{link_to friendship.friend.email, friendship.friend}
           %td #{friendship.friend.id}
-          %td #{friendship.friend.distance}
           %td #{friendship.status} 
           - if friendship.status == "requested"
             %td 

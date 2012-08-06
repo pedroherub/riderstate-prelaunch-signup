@@ -50,7 +50,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    debugger
+    #debugger
     #@activity = Activity.new(params[:activity])
     @activity = @current_user.activities.create(params[:activity])
     if @activity.save

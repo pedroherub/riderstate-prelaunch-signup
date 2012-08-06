@@ -19,22 +19,22 @@
         %th
         %th
         %th
-        %tbody
-    - @activities.each do |activity|
-      %tr
-        %td= activity.name
-        %td= activity.riding_type
-        %td= activity.departing
-        %td= sprintf('%02d',activity.duration_hours) + ":" + sprintf('%02d',activity.duration_minutes)
-        %td= activity.distance
-        %td= activity.heartbeats_average
-        %td= activity.heartbeats_max
-        %td= activity.burnedcalories
-        %td= activity.feeling
-        %td= activity.weather
-        %td= activity.notes
-        %td= link_to 'Show', user_activity_path(@current_user,activity.id)
-        %td= link_to 'Edit', edit_user_activity_path(@current_user,activity.id)
-        %td= link_to 'Destroy', user_activity_path(@current_user,activity.id), :confirm => 'Are you sure?', :method => :delete
+    %tbody
+      - @activities.each do |activity|
+        %tr
+          %td= activity.name
+          %td= activity.riding_type
+          %td= activity.departing
+          %td= sprintf('%02d',activity.duration_hours) + ":" + sprintf('%02d',activity.duration_minutes)
+          %td= activity.distance
+          %td= activity.heartbeats_average
+          %td= activity.heartbeats_max
+          %td= activity.burnedcalories
+          %td= activity.feeling
+          %td= activity.weather
+          %td= activity.notes
+          %td= link_to 'Show', user_activity_path(@current_user,activity.id)
+          %td= link_to 'Edit', edit_user_activity_path(@current_user,activity.id)
+          %td= link_to 'Destroy', user_activity_path(@current_user,activity.id), :confirm => 'Are you sure?', :method => :delete
   -#%br
     -#= link_to 'New Activity', new_user_activity_path(@current_user)
