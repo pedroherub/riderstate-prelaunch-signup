@@ -1,12 +1,9 @@
 ---
-:User:
-  :avatar:
+:Club:
+  :logo:
   - :thumb
-  - :croppable
-  - :big
-:Book:
-  :cover:
   - :small
-  - :large
-  :sample:
+:Event:
+  :photo:
   - :thumb
+  - :small
