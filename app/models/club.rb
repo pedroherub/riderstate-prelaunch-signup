@@ -5,7 +5,7 @@ class Club < ActiveRecord::Base
                :thumb=> "100x100#",
                :small  => "300x300>" },
            :storage => :s3,
-           :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+           :s3_credentials => "/usr/share/nginx/www/riderstate.es/current/config/s3.yml",
            :path => "/club/:style/:id/:filename"
 
   belongs_to :district
