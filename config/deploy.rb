@@ -186,6 +186,8 @@ namespace :deploy do
   end
 end
 
+after("deploy:update_code", "deploy:build_missing_paperclip_styles")
+
 def run_rake(cmd)
   run "cd #{current_path}; #{rake} #{cmd}"
 end

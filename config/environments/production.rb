@@ -81,7 +81,7 @@ RiderstatePrelaunchSignup::Application.configure do
     :openssl_verify_mode  => 'none'
   }
 
-
+  set :RAILS_ROOT, '/usr/share/nginx/www/riderstate.es/current'
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
