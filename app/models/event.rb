@@ -1,6 +1,13 @@
 class Event < ActiveRecord::Base
   attr_accessible :name, :publish, :starting, :riding_type, :photo, :group
-  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :photo,
+           :styles => {
+             :thumb=> "100x100#",
+             :small  => "300x300>" },
+           :storage => :s3,
+           :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+          :path => "/event/:style/:id/:filename"
+
   has_and_belongs_to_many :users
 
   validates :name, :presence => true

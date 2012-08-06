@@ -47,4 +47,5 @@ group :development do
 end
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk', '~> 1.3.4'
+gem 'aws-s3'
 gem 'rails3-jquery-autocomplete'
