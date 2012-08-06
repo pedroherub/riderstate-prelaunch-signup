@@ -5,7 +5,12 @@ class Event < ActiveRecord::Base
              :thumb=> "100x100#",
              :small  => "300x300>" },
            :storage => :s3,
-           :s3_credentials => "/usr/share/nginx/www/riderstate.es/current/config/s3.yml",
+           :bucket => 'bucket-riderstate',
+                  :s3_credentials => {
+             :access_key_id => ENV['RS_AWS_ACCESS_KEY'],
+                      :secret_access_key => ENV['RS_AWS_SECRET_KEY']
+         },
+           #:s3_credentials => "/usr/share/nginx/www/riderstate.es/current/config/s3.yml",
           :path => "/event/:style/:id/:filename"
 
   has_and_belongs_to_many :users
