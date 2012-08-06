@@ -1,0 +1,9 @@
+---
+:Club:
+  :logo:
+  - :thumb
+  - :small
+:Event:
+  :photo:
+  - :thumb
+  - :small
