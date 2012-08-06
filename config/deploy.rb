@@ -106,7 +106,6 @@ namespace :deploy do
 
   desc "Update the deployed code."
   task :update_code, :except => { :no_release => true } do
-    top.upload "config/paperclip_attachments.yml", "#{release_path}/public/system/paperclip_attachments.yml", :via => :scp, :recursive => true
     run "cd #{current_path}; git fetch origin; git reset --hard #{branch}"
     finalize_update
   end
