@@ -6,8 +6,8 @@ class Event < ActiveRecord::Base
              :small  => "300x300>" },
            :storage => :s3,
            #url: ":s3_domain_url",
-           #:s3_credentials => "/usr/share/nginx/www/riderstate.es/current/config/s3.yml",
-           :s3_credentials => "/home/pedroherub/dev/riderstate-prelaunch-signup/config/s3.yml",
+           :s3_credentials => "/usr/share/nginx/www/riderstate.es/current/config/s3.yml",
+           #:s3_credentials => "/home/pedroherub/dev/riderstate-prelaunch-signup/config/s3.yml",
           :path => "/event/:style/:id/:filename"
 
   has_and_belongs_to_many :users
