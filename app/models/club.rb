@@ -6,8 +6,8 @@ class Club < ActiveRecord::Base
                :small  => "300x300>" },
            :storage => :s3,
            #url: ":s3_domain_url",
-           #:s3_credentials => "/home/pedroherub/dev/riderstate-prelaunch-signup/config/s3.yml",
-           :s3_credentials => "/usr/share/nginx/www/riderstate.es/current/config/s3.yml",
+           :s3_credentials => "#{Rails.root}/config/s3.yml",
+           #:s3_credentials => "#{Rails.root}/config/s3.yml",
            :path => "/club/:style/:id/:filename"
 
   belongs_to :district

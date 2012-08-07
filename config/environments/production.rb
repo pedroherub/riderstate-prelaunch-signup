@@ -85,6 +85,7 @@ RiderstatePrelaunchSignup::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
-  Paperclip.registered_attachments_styles_path = '/usr/share/nginx/www/riderstate.es/current/config/paperclip_attachments.yml'
+  Paperclip.options[:command_path] = "/usr/bin/"
+  Paperclip.registered_attachments_styles_path = '#{Rails.root}/config/paperclip_attachments.yml'
 
 end
