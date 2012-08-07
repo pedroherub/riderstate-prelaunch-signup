@@ -78,7 +78,8 @@ class EventsController < ApplicationController
   def create
     #debugger
     @event = Event.new(params[:event])
-    @event.update_attribute(:owner,@current_user.id)
+    @event.owner = current_user.id
+    #@event.update_attribute(:owner,@current_user.id)
     @current_user.events << @event
 
     respond_to do |format|
