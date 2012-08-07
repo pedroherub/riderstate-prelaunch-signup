@@ -56,5 +56,6 @@ RiderstatePrelaunchSignup::Application.configure do
   config.assets.debug = true
 
   Paperclip.options[:command_path] = "/usr/bin/"
-  Paperclip.registered_attachments_styles_path = '#{Rails.root}/config/paperclip_attachments.yml'
+  Paperclip.registered_attachments_styles_path = Rails.root.join('config','paperclip_attachments.yml')
+  #Paperclip.registered_attachments_styles_path = '#{Rails.root}/config/paperclip_attachments.yml'
 end
