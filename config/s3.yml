@@ -1,5 +1,10 @@
+development:
+  bucket: bucket-riderstate-dev
+  access_key_id: <%= ENV['RS_AWS_ACCESS_KEY'] %>
+  secret_access_key: <%= ENV['RS_AWS_SECRET_KEY'] %>
+production:
+  bucket: bucket-riderstate-pro
+  access_key_id: <%= ENV['RS_AWS_ACCESS_KEY'] %>
+  secret_access_key: <%= ENV['RS_AWS_SECRET_KEY'] %>
 
-bucket: bucket-riderstate
-access_key_id: ENV['RS_AWS_ACCESS_KEY']
-secret_access_key: ENV['RS_AWS_SECRET_KEY']
 
