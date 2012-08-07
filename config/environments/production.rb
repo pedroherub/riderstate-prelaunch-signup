@@ -86,6 +86,7 @@ RiderstatePrelaunchSignup::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
   Paperclip.options[:command_path] = "/usr/bin/"
-  Paperclip.registered_attachments_styles_path = '#{Rails.root}/config/paperclip_attachments.yml'
+  Paperclip.registered_attachments_styles_path = Rails.root.join('config','paperclip_attachments.yml')
+  #{Rails.root}/config/paperclip_attachments.yml'
 
 end
